@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+
+    <title>Архив документов</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="desktop">
+
+    <!-- Заголовок -->
+    <header class="archive-title">
+        <div class="small-title">От Р.С.</div>
+        <h1>АРХИВ</h1>
+        <div class="line"></div>
+    </header>
+
+
+    <!-- Свет от лампы -->
+    <div class="lamp-light"></div>
+
+
+    <!-- Папки -->
+    <main class="folders">
+
+
+        <!-- =====================================
+             ПАПКА 1
+        ====================================== -->
+
+        <div class="folder folder-brown"
+             data-document="0">
+
+            <div class="folder-shadow"></div>
+
+            <div class="folder-object">
+
+                <!-- Задняя часть -->
+                <div class="folder-back">
+
+                    <div class="folder-tab">
+                        ДОКУМЕНТЫ
+                    </div>
+
+                </div>
+
+
+                <!-- Бумаги внутри -->
+
+                <div class="papers">
+
+                    <div class="paper paper-1"></div>
+                    <div class="paper paper-2"></div>
+                    <div class="paper paper-3"></div>
+
+                </div>
+
+
+                <!-- Крышка -->
+                <div class="folder-lid">
+
+                    <div class="folder-label">
+                        Дело №01
+                    </div>
+
+                </div>
+
+
+                <!-- Передняя стенка -->
+                <div class="folder-front"></div>
+
+            </div>
+
+
+            <div class="folder-title">
+                дело Кевина и Селин
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             ПАПКА 2
+        ====================================== -->
+
+        <div class="folder folder-green"
+             data-document="1">
+
+            <div class="folder-shadow"></div>
+
+            <div class="folder-object">
+
+                <div class="folder-back">
+
+                    <div class="folder-tab">
+                        ARCHIVE
+                    </div>
+
+                </div>
+
+                <div class="papers">
+
+                    <div class="paper paper-1"></div>
+                    <div class="paper paper-2"></div>
+                    <div class="paper paper-3"></div>
+
+                </div>
+
+                <div class="folder-lid">
+
+                    <div class="folder-label">
+                        Дело №02
+                    </div>
+
+                </div>
+
+                <div class="folder-front"></div>
+
+            </div>
+
+            <div class="folder-title">
+                Дело фриды и Бернарда
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             ПАПКА 3
+        ====================================== -->
+
+        <div class="folder folder-red"
+             data-document="2">
+
+            <div class="folder-shadow"></div>
+
+            <div class="folder-object">
+
+                <div class="folder-back">
+
+                    <div class="folder-tab">
+                        CLASSIFIED
+                    </div>
+
+                </div>
+
+                <div class="papers">
+
+                    <div class="paper paper-1"></div>
+                    <div class="paper paper-2"></div>
+                    <div class="paper paper-3"></div>
+
+                </div>
+
+                <div class="folder-lid">
+
+                    <div class="folder-label">
+                        Дело №03
+                    </div>
+
+                </div>
+
+                <div class="folder-front"></div>
+
+            </div>
+
+            <div class="folder-title">
+                Дело Аспид
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             ПАПКА 4
+        ====================================== -->
+
+        <div class="folder folder-blue"
+             data-document="3">
+
+            <div class="folder-shadow"></div>
+
+            <div class="folder-object">
+
+                <div class="folder-back">
+
+                    <div class="folder-tab">
+                        RECORDS
+                    </div>
+
+                </div>
+
+                <div class="papers">
+
+                    <div class="paper paper-1"></div>
+                    <div class="paper paper-2"></div>
+                    <div class="paper paper-3"></div>
+
+                </div>
+
+                <div class="folder-lid">
+
+                    <div class="folder-label">
+                        Дело №04
+                    </div>
+
+                </div>
+
+                <div class="folder-front"></div>
+
+            </div>
+
+            <div class="folder-title">
+                Дело Спрута и Аспена
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- Затемнение при открытии документа -->
+
+    <div class="document-overlay"
+         id="documentOverlay">
+
+        <div class="document-window">
+
+            <div class="document-header">
+
+                <div>
+                    <span class="document-class">
+                        ARCHIVE DOCUMENT
+                    </span>
+
+                    <h2 id="documentTitle">
+                        Документ
+                    </h2>
+                </div>
+
+                <button
+                    class="close-button"
+                    id="closeButton">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="document-body"
+                 id="documentContent">
+            </div>
+
+
+            <div class="document-footer">
+                <span>PERSONAL ARCHIVE</span>
+                <span id="documentNumber">001</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Виньетка -->
+
+    <div class="vignette"></div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
