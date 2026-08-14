@@ -1,23 +1,3 @@
-.folder-back {
-    z-index: 1;
-}
-
-.papers {
-    z-index: 3;
-}
-
-.folder-lid {
-    z-index: 6;
-}
-
-.folder-front {
-    z-index: 8;
-}
-
-/* =====================================================
-   ОСНОВА
-===================================================== */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,7 +7,7 @@
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -44,9 +24,9 @@ body {
 }
 
 
-/* =====================================================
+/* ==================================================
    СТОЛ
-===================================================== */
+================================================== */
 
 .desktop {
     position: relative;
@@ -57,9 +37,6 @@ body {
     overflow: hidden;
 
     background:
-
-        /* небольшие пятна дерева */
-
         radial-gradient(
             ellipse at 20% 30%,
             rgba(255,255,255,.035),
@@ -72,11 +49,9 @@ body {
             transparent 40%
         ),
 
-        /* древесные линии */
-
         repeating-linear-gradient(
             8deg,
-            transparent 0px,
+            transparent 0,
             transparent 85px,
             rgba(0,0,0,.07) 87px,
             transparent 91px
@@ -91,54 +66,134 @@ body {
 }
 
 
-/* =====================================================
-   ТЕКСТУРА СТОЛА
-===================================================== */
+/* ==================================================
+   ВЕРХНЕЕ МЕНЮ
+================================================== */
 
-.desktop::before {
+.top-menu {
+    position: fixed;
 
-    content: "";
+    z-index: 500;
 
-    position: absolute;
+    top: 20px;
+    left: 50%;
 
-    inset: 0;
+    transform:
+        translateX(-50%);
 
-    pointer-events: none;
-
-    opacity: .18;
-
-    background:
-
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 4px,
-            rgba(255,255,255,.012) 5px
+    width:
+        min(
+            700px,
+            92vw
         );
 }
 
 
-/* =====================================================
+/* ==================================================
+   ПОИСК
+================================================== */
+
+.search-bar {
+    width: 100%;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 16px;
+
+    border:
+        1px solid
+        rgba(220,190,140,.35);
+
+    border-radius: 8px;
+
+    background:
+        rgba(35,29,23,.92);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.35),
+
+        inset
+        0 1px
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(8px);
+
+    transition:
+        .25s;
+}
+
+.search-bar:focus-within {
+    border-color:
+        rgba(238,200,135,.75);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.45),
+
+        0 0 20px
+        rgba(230,180,100,.08);
+}
+
+.search-icon {
+    color: #b8a487;
+
+    font-size: 25px;
+
+    margin-right: 10px;
+
+    transform:
+        rotate(-20deg);
+}
+
+.search-bar input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ead9b5;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 16px;
+}
+
+.search-bar input::placeholder {
+    color: #8f8575;
+}
+
+
+/* ==================================================
    ЗАГОЛОВОК
-===================================================== */
+================================================== */
 
 .archive-title {
-
     position: absolute;
 
     z-index: 50;
 
-    top: 28px;
+    top: 85px;
     left: 38px;
 
     pointer-events: none;
 
     text-shadow:
-        0 3px 8px rgba(0,0,0,.7);
+        0 3px 8px
+        rgba(0,0,0,.7);
 }
 
 .small-title {
-
     color: #b7a88e;
 
     font-size: 10px;
@@ -149,7 +204,6 @@ body {
 }
 
 .archive-title h1 {
-
     color: #ead9b5;
 
     font-family:
@@ -157,15 +211,18 @@ body {
         serif;
 
     font-size:
-        clamp(22px, 2.4vw, 36px);
+        clamp(
+            22px,
+            2.4vw,
+            36px
+        );
 
     letter-spacing: 8px;
 
     font-weight: normal;
 }
 
-.archive-title .line {
-
+.title-line {
     width: 100%;
 
     height: 1px;
@@ -177,12 +234,11 @@ body {
 }
 
 
-/* =====================================================
-   СВЕТ ЛАМПЫ
-===================================================== */
+/* ==================================================
+   ЛАМПА
+================================================== */
 
 .lamp-light {
-
     position: fixed;
 
     z-index: 20;
@@ -199,23 +255,16 @@ body {
         translate(-50%, -50%);
 
     background:
-
         radial-gradient(
             circle,
-
-            rgba(255,229,171,.35)
-            0%,
-
-            rgba(255,212,130,.18)
-            25%,
-
-            rgba(255,190,90,.08)
-            45%,
-
+            rgba(255,229,171,.35) 0%,
+            rgba(255,212,130,.18) 25%,
+            rgba(255,190,90,.08) 45%,
             transparent 70%
         );
 
-    mix-blend-mode: screen;
+    mix-blend-mode:
+        screen;
 
     animation:
         lampFlicker
@@ -223,7 +272,6 @@ body {
         infinite
         ease-in-out;
 }
-
 
 @keyframes lampFlicker {
 
@@ -257,12 +305,11 @@ body {
 }
 
 
-/* =====================================================
+/* ==================================================
    ВИНЬЕТКА
-===================================================== */
+================================================== */
 
 .vignette {
-
     position: fixed;
 
     z-index: 100;
@@ -272,25 +319,20 @@ body {
     pointer-events: none;
 
     background:
-
         radial-gradient(
             ellipse at center,
-
             transparent 28%,
-
             rgba(0,0,0,.15) 55%,
-
             rgba(0,0,0,.65) 100%
         );
 }
 
 
-/* =====================================================
+/* ==================================================
    ПАПКИ
-===================================================== */
+================================================== */
 
 .folders {
-
     position: absolute;
 
     inset: 0;
@@ -300,9 +342,7 @@ body {
     perspective: 1500px;
 }
 
-
 .folder {
-
     position: absolute;
 
     width:
@@ -314,7 +354,8 @@ body {
 
     cursor: pointer;
 
-    transform-style: preserve-3d;
+    transform-style:
+        preserve-3d;
 
     user-select: none;
 
@@ -325,41 +366,56 @@ body {
 }
 
 
-/* =====================================================
-   ПОЛОЖЕНИЕ ПАПОК
-===================================================== */
+/* ==================================================
+   ПОЗИЦИИ ПАПОК
+================================================== */
 
 .folder-brown {
-    left: 7%;
+    left: 6%;
     top: 20%;
-    transform: rotate(-6deg);
+
+    transform:
+        rotate(-6deg);
 }
 
 .folder-green {
-    left: 39%;
-    top: 14%;
-    transform: rotate(5deg);
+    left: 38%;
+    top: 13%;
+
+    transform:
+        rotate(5deg);
 }
 
 .folder-red {
-    left: 14%;
+    left: 13%;
     top: 58%;
-    transform: rotate(4deg);
+
+    transform:
+        rotate(4deg);
 }
 
 .folder-blue {
-    left: 55%;
-    top: 56%;
-    transform: rotate(-5deg);
+    left: 52%;
+    top: 57%;
+
+    transform:
+        rotate(-5deg);
+}
+
+.folder-orange {
+    left: 73%;
+    top: 29%;
+
+    transform:
+        rotate(7deg);
 }
 
 
-/* =====================================================
+/* ==================================================
    ТЕНЬ
-===================================================== */
+================================================== */
 
 .folder-shadow {
-
     position: absolute;
 
     z-index: 0;
@@ -381,47 +437,39 @@ body {
 
     transform:
         translateZ(-20px);
-
-    transition:
-        transform .6s,
-        opacity .6s;
 }
 
 
-/* =====================================================
+/* ==================================================
    ОБЪЕКТ ПАПКИ
-===================================================== */
+================================================== */
 
 .folder-object {
-
     position: relative;
 
     width: 100%;
 
-    aspect-ratio: 1.25 / 1;
+    aspect-ratio:
+        1.25 / 1;
 
-    transform-style: preserve-3d;
+    transform-style:
+        preserve-3d;
 
     perspective: 1300px;
 }
 
 
-/* =====================================================
+/* ==================================================
    ЗАДНЯЯ ЧАСТЬ
-===================================================== */
+================================================== */
 
 .folder-back {
-
     position: absolute;
 
     z-index: 1;
 
-    left: 0;
-    right: 0;
-
-    top: 7%;
-
-    bottom: 5%;
+    inset:
+        7% 0 5% 0;
 
     border-radius:
         5px
@@ -430,7 +478,6 @@ body {
         12px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.15),
@@ -445,7 +492,6 @@ body {
         );
 
     box-shadow:
-
         inset
         0 2px
         rgba(255,255,255,.18),
@@ -457,27 +503,22 @@ body {
 }
 
 
-/* =====================================================
-   ВКЛАДКА
-===================================================== */
+/* ==================================================
+   ЯЗЫЧОК
+================================================== */
 
 .folder-tab {
-
     position: absolute;
 
     left: 7%;
-
     top: -10%;
 
     width: 38%;
-
     height: 18%;
 
     padding-top: 7px;
 
     text-align: center;
-
-    overflow: hidden;
 
     border-radius:
         7px
@@ -496,21 +537,24 @@ body {
         rgba(50,35,18,.75);
 
     font-size:
-        clamp(8px, .7vw, 11px);
-
-    letter-spacing: 1px;
+        clamp(
+            8px,
+            .7vw,
+            11px
+        );
 
     font-weight: bold;
 
     box-shadow:
-        inset 0 2px
+        inset
+        0 2px
         rgba(255,255,255,.18);
 }
 
 
-/* =====================================================
-   ЛИСТЫ
-===================================================== */
+/* ==================================================
+   БУМАГИ
+================================================== */
 
 .papers {
     position: absolute;
@@ -526,11 +570,11 @@ body {
 
     overflow: hidden;
 
-    transform-style: preserve-3d;
+    transform-style:
+        preserve-3d;
 
     pointer-events: none;
 }
-
 
 .paper {
     position: absolute;
@@ -539,7 +583,6 @@ body {
     height: 100%;
 
     left: 9%;
-
     top: 8%;
 
     background:
@@ -555,14 +598,14 @@ body {
         0 4px 12px
         rgba(0,0,0,.3);
 
-    transform-origin: bottom center;
+    transform-origin:
+        bottom center;
 
     transition:
         transform
         .8s
         cubic-bezier(.2,.8,.2,1);
 }
-
 
 .paper::before {
     content: "";
@@ -585,20 +628,17 @@ body {
         0 54px rgba(70,60,50,.16);
 }
 
-
 .paper-1 {
     transform:
         rotate(-2deg)
         translateZ(3px);
 }
 
-
 .paper-2 {
     transform:
         rotate(1deg)
         translateZ(2px);
 }
-
 
 .paper-3 {
     transform:
@@ -607,12 +647,11 @@ body {
 }
 
 
-/* =====================================================
+/* ==================================================
    КРЫШКА
-===================================================== */
+================================================== */
 
 .folder-lid {
-
     position: absolute;
 
     z-index: 6;
@@ -624,7 +663,8 @@ body {
 
     height: 74%;
 
-    transform-style: preserve-3d;
+    transform-style:
+        preserve-3d;
 
     transform-origin:
         50% 94%;
@@ -636,7 +676,6 @@ body {
         10px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.14),
@@ -651,7 +690,6 @@ body {
         );
 
     box-shadow:
-
         inset
         0 2px
         rgba(255,255,255,.2),
@@ -666,22 +704,17 @@ body {
         rgba(0,0,0,.18);
 
     transition:
-
         transform
         .8s
-        cubic-bezier(.16,.85,.25,1),
-
-        box-shadow
-        .8s;
+        cubic-bezier(.16,.85,.25,1);
 }
 
 
-/* =====================================================
-   ЭТИКЕТКА НА ПАПКЕ
-===================================================== */
+/* ==================================================
+   ЭТИКЕТКА
+================================================== */
 
 .folder-label {
-
     position: absolute;
 
     left: 16%;
@@ -724,19 +757,14 @@ body {
         );
 
     font-weight: bold;
-
-    box-shadow:
-        0 3px 7px
-        rgba(0,0,0,.22);
 }
 
 
-/* =====================================================
-   ПЕРЕДНЯЯ СТЕНКА
-===================================================== */
+/* ==================================================
+   ПЕРЕДНЯЯ ЧАСТЬ
+================================================== */
 
 .folder-front {
-
     position: absolute;
 
     z-index: 8;
@@ -755,7 +783,6 @@ body {
         12px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.13),
@@ -770,7 +797,6 @@ body {
         );
 
     box-shadow:
-
         inset
         0 2px
         rgba(255,255,255,.18),
@@ -782,48 +808,46 @@ body {
 }
 
 
-/* =====================================================
-   ЦВЕТА ПАПОК
-===================================================== */
+/* ==================================================
+   ЦВЕТА
+================================================== */
 
 .folder-brown {
-
     --folder-light: #e3bd68;
     --folder-main: #c6963d;
     --folder-dark: #966a27;
 }
 
-
 .folder-green {
-
     --folder-light: #a6a96a;
     --folder-main: #777b45;
     --folder-dark: #50542d;
 }
 
-
 .folder-red {
-
     --folder-light: #bd7561;
     --folder-main: #914d3d;
     --folder-dark: #633329;
 }
 
-
 .folder-blue {
-
     --folder-light: #75949a;
     --folder-main: #506d72;
     --folder-dark: #354b4f;
 }
 
+.folder-orange {
+    --folder-light: #f6b25d;
+    --folder-main: #dc7625;
+    --folder-dark: #99440f;
+}
 
-/* =====================================================
-   НАЗВАНИЕ ПОД ПАПКОЙ
-===================================================== */
+
+/* ==================================================
+   НАЗВАНИЕ
+================================================== */
 
 .folder-title {
-
     position: relative;
 
     z-index: 15;
@@ -851,20 +875,16 @@ body {
     text-shadow:
         0 3px 6px
         rgba(0,0,0,.8);
-
-    transition:
-        opacity .35s;
 }
 
 
-/* =====================================================
+/* ==================================================
    НАВЕДЕНИЕ
-===================================================== */
+================================================== */
 
 @media (hover: hover) {
 
     .folder:hover {
-
         z-index: 50;
 
         transform:
@@ -873,24 +893,14 @@ body {
             rotate(0deg);
     }
 
-
-    .folder:hover .folder-shadow {
-
-        transform:
-            translateZ(-20px)
-            scale(1.08);
-
-        opacity: .8;
-    }
 }
 
 
-/* =====================================================
-   ОТКРЫТИЕ
-===================================================== */
+/* ==================================================
+   ОТКРЫТИЕ ПАПКИ
+================================================== */
 
 .folder.open {
-
     z-index: 200;
 
     animation:
@@ -900,32 +910,27 @@ body {
         forwards;
 }
 
-
 @keyframes folderOpen {
 
     0% {
-
         transform:
             translateY(0)
             scale(1);
     }
 
     45% {
-
         transform:
             translateY(-30px)
             scale(1.08);
     }
 
     70% {
-
         transform:
             translateY(-18px)
             scale(1.06);
     }
 
     100% {
-
         transform:
             translateY(-22px)
             scale(1.07)
@@ -933,28 +938,11 @@ body {
     }
 }
 
-
-/* Крышка открывается */
-
 .folder.open .folder-lid {
-
     transform:
         rotateX(-78deg)
         translateY(-7px);
-
-    box-shadow:
-
-        0 25px
-        30px
-        rgba(0,0,0,.15),
-
-        inset
-        0 2px
-        rgba(255,255,255,.18);
 }
-
-
-/* Бумаги выезжают */
 
 .folder.open .paper-1 {
     transform:
@@ -980,20 +968,16 @@ body {
         translateZ(7px);
 }
 
-/* Название исчезает */
-
 .folder.open .folder-title {
-
     opacity: 0;
 }
 
 
-/* =====================================================
+/* ==================================================
    ДОКУМЕНТ
-===================================================== */
+================================================== */
 
 .document-overlay {
-
     position: fixed;
 
     z-index: 1000;
@@ -1018,25 +1002,16 @@ body {
     pointer-events: none;
 
     transition:
-        opacity
-        .4s ease;
+        opacity .4s;
 }
 
-
 .document-overlay.active {
-
     opacity: 1;
 
     pointer-events: all;
 }
 
-
-/* =====================================================
-   ОКНО
-===================================================== */
-
 .document-window {
-
     width:
         min(
             820px,
@@ -1055,6 +1030,8 @@ body {
 
     overflow: hidden;
 
+    border-radius: 7px;
+
     background:
         linear-gradient(
             90deg,
@@ -1063,8 +1040,6 @@ body {
             #f7f3e9 92%,
             #d8d0bd
         );
-
-    border-radius: 7px;
 
     box-shadow:
         0 35px 90px
@@ -1086,7 +1061,6 @@ body {
         .45s;
 }
 
-
 .document-overlay.active
 .document-window {
 
@@ -1098,19 +1072,12 @@ body {
     opacity: 1;
 }
 
-
-/* =====================================================
-   ШАПКА ДОКУМЕНТА
-===================================================== */
-
 .document-header {
-
     min-height: 75px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     padding:
@@ -1123,9 +1090,7 @@ body {
     color: white;
 }
 
-
 .document-class {
-
     display: block;
 
     margin-bottom: 4px;
@@ -1138,9 +1103,7 @@ body {
     letter-spacing: 3px;
 }
 
-
 .document-header h2 {
-
     font-family:
         Georgia,
         serif;
@@ -1155,13 +1118,7 @@ body {
     font-weight: normal;
 }
 
-
-/* =====================================================
-   КНОПКА ЗАКРЫТИЯ
-===================================================== */
-
 .close-button {
-
     width: 40px;
     height: 40px;
 
@@ -1177,35 +1134,19 @@ body {
     font-size: 30px;
 
     cursor: pointer;
-
-    transition:
-        background .2s,
-        transform .2s;
 }
-
 
 .close-button:hover {
-
     background:
         #824234;
-
-    transform:
-        rotate(6deg);
 }
 
-
-/* =====================================================
-   ТЕКСТ ДОКУМЕНТА
-===================================================== */
-
 .document-body {
-
     flex: 1;
 
     overflow-y: auto;
 
-    padding:
-        38px;
+    padding: 38px;
 
     color:
         #2b2924;
@@ -1220,22 +1161,9 @@ body {
     line-height: 1.8;
 
     white-space: pre-wrap;
-
-    scrollbar-width:
-        thin;
-
-    scrollbar-color:
-        #8c806c
-        transparent;
 }
 
-
-/* =====================================================
-   НИЗ ДОКУМЕНТА
-===================================================== */
-
 .document-footer {
-
     display: flex;
 
     justify-content: space-between;
@@ -1256,9 +1184,737 @@ body {
 }
 
 
-/* =====================================================
+/* ==================================================
+   НЮН
+================================================== */
+
+.nyun-game {
+    position: fixed;
+
+    z-index: 2000;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.68);
+
+    backdrop-filter:
+        blur(5px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s;
+}
+
+.nyun-game.active {
+    opacity: 1;
+
+    pointer-events: all;
+}
+
+.nyun-window {
+    position: relative;
+
+    width:
+        min(
+            650px,
+            92vw
+        );
+
+    max-height: 90vh;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        #5c4a38;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #30271e,
+            #1f1914
+        );
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.8);
+
+    transform:
+        translateY(40px)
+        scale(.85);
+
+    transition:
+        transform .45s;
+}
+
+.nyun-game.active
+.nyun-window {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.nyun-close {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 10px;
+    right: 12px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        #b9ad9a;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.nyun-title {
+    margin-top: 5px;
+
+    color:
+        #e5c98d;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            18px,
+            3vw,
+            26px
+        );
+
+    letter-spacing: 3px;
+
+    text-align: center;
+}
+
+.nyun-subtitle {
+    margin:
+        6px 0 15px;
+
+    color:
+        #a99a83;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+.nyun-picture-area {
+    width:
+        min(
+            580px,
+            100%
+        );
+
+    max-height: 55vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background:
+        #17130f;
+}
+
+.nyun-image {
+    display: block;
+
+    width: 100%;
+
+    max-height: 55vh;
+
+    object-fit: contain;
+
+    transform-origin:
+        center bottom;
+}
+
+.nyun-image.kicked {
+    animation:
+        nyunKick
+        .55s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes nyunKick {
+
+    0% {
+        transform:
+            translateX(0)
+            rotate(0deg);
+    }
+
+    15% {
+        transform:
+            translateX(-12px)
+            rotate(-3deg);
+    }
+
+    30% {
+        transform:
+            translateX(35px)
+            rotate(7deg);
+    }
+
+    50% {
+        transform:
+            translateX(85px)
+            rotate(14deg);
+    }
+
+    70% {
+        transform:
+            translateX(35px)
+            rotate(5deg);
+    }
+
+    85% {
+        transform:
+            translateX(-8px)
+            rotate(-2deg);
+    }
+
+    100% {
+        transform:
+            translateX(0)
+            rotate(0deg);
+    }
+}
+
+
+/* ==================================================
+   ПНУТЬ
+================================================== */
+
+.kick-button {
+    margin-top: 18px;
+
+    width:
+        min(
+            300px,
+            80%
+        );
+
+    height: 58px;
+
+    border:
+        2px solid
+        #8d3d2d;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #9e4b38,
+            #6d2f25
+        );
+
+    color:
+        #fff0df;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 0
+        #422019;
+
+    transition:
+        .12s;
+}
+
+.kick-button:active {
+
+    transform:
+        translateY(6px);
+
+    box-shadow:
+        0 1px 0
+        #422019;
+}
+
+.kick-counter {
+    margin-top: 12px;
+
+    color:
+        #9e917d;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==================================================
+   ОСЕМЕНИТЬ В МЕНЮ НЮНА
+================================================== */
+
+.nyun-secret-button {
+    width:
+        min(
+            300px,
+            80%
+        );
+
+    height: 48px;
+
+    margin-top: 18px;
+
+    border:
+        1px solid
+        #765c3e;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #403328,
+            #251d17
+        );
+
+    color:
+        #cbb991;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0
+        #17110d,
+
+        0 8px 20px
+        rgba(0,0,0,.35);
+
+    transition:
+        transform .15s,
+        background .2s,
+        color .2s,
+        border-color .2s;
+}
+
+.nyun-secret-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    color:
+        #fff0d0;
+
+    border-color:
+        #b99a61;
+
+    background:
+        linear-gradient(
+            180deg,
+            #554333,
+            #30231a
+        );
+}
+
+.nyun-secret-button:active {
+
+    transform:
+        translateY(4px);
+
+    box-shadow:
+        0 1px 0
+        #17110d;
+}
+
+.nyun-secret-button.unlocked {
+
+    border-color:
+        #7d9b58;
+
+    color:
+        #bddd8c;
+}
+
+
+/* ==================================================
+   ПАРОЛЬ
+================================================== */
+
+.password-overlay,
+.inseminate-overlay {
+
+    position: fixed;
+
+    z-index: 3000;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.7);
+
+    backdrop-filter:
+        blur(6px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .3s;
+}
+
+.password-overlay.active,
+.inseminate-overlay.active {
+
+    opacity: 1;
+
+    pointer-events: all;
+}
+
+.password-window,
+.inseminate-window {
+
+    position: relative;
+
+    width:
+        min(
+            400px,
+            92vw
+        );
+
+    padding:
+        35px 30px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(220,190,140,.35);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #30271e,
+            #1c1712
+        );
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.8);
+
+    transform:
+        translateY(40px)
+        scale(.85);
+
+    transition:
+        transform .4s;
+}
+
+.password-overlay.active
+.password-window,
+
+.inseminate-overlay.active
+.inseminate-window {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.password-close,
+.inseminate-close {
+
+    position: absolute;
+
+    top: 8px;
+    right: 10px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    background:
+        transparent;
+
+    color:
+        #aaa08e;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.password-close:hover,
+.inseminate-close:hover {
+
+    color: white;
+
+    background:
+        #693c31;
+}
+
+.password-icon,
+.inseminate-icon {
+
+    font-size: 38px;
+
+    margin-bottom: 12px;
+}
+
+.password-window h2,
+.inseminate-window h2 {
+
+    color:
+        #e5c98d;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 21px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.password-window p,
+.inseminate-window p {
+
+    color:
+        #978c79;
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+#passwordInput {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid
+        #5d5040;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    background:
+        #17130f;
+
+    color:
+        #ead9b5;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 16px;
+
+    text-align: center;
+}
+
+#passwordInput:focus {
+
+    border-color:
+        #b9965c;
+}
+
+.password-submit {
+
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #8d6840,
+            #5d4027
+        );
+
+    color:
+        #fff0d0;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+.password-error {
+
+    min-height: 20px;
+
+    margin-top: 12px;
+
+    color:
+        #d96d5b;
+
+    font-size: 12px;
+}
+
+
+/* ==================================================
+   ФИНАЛЬНОЕ ОКНО
+================================================== */
+
+.inseminate-button {
+
+    width: 100%;
+
+    height: 58px;
+
+    border:
+        2px solid
+        #8d3d2d;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #a34c36,
+            #682c23
+        );
+
+    color:
+        #fff0df;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 0
+        #3d1b16;
+
+    transition:
+        .15s;
+}
+
+.inseminate-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.15);
+}
+
+.inseminate-button:active {
+
+    transform:
+        translateY(5px);
+
+    box-shadow:
+        0 1px 0
+        #3d1b16;
+}
+
+.inseminate-result {
+
+    min-height: 25px;
+
+    margin-top: 15px;
+
+    color:
+        #c6e69a;
+
+    font-family:
+        Georgia,
+        serif;
+}
+
+
+/* ==================================================
    ПЛАНШЕТ
-===================================================== */
+================================================== */
 
 @media
 (min-width: 601px)
@@ -1267,59 +1923,50 @@ and
 
     .folder {
 
-        width:
-            30vw;
+        width: 29vw;
     }
 
+    .folder-brown {
 
-    .folder-1 {
-
-        left: 6%;
-        top: 19%;
+        left: 4%;
+        top: 20%;
     }
 
+    .folder-green {
 
-    .folder-2 {
-
-        left: 56%;
-        top: 17%;
+        left: 36%;
+        top: 15%;
     }
 
+    .folder-orange {
 
-    .folder-3 {
-
-        left: 9%;
-        top: 56%;
+        left: 67%;
+        top: 23%;
     }
 
+    .folder-red {
 
-    .folder-4 {
-
-        left: 57%;
-        top: 55%;
+        left: 14%;
+        top: 58%;
     }
 
+    .folder-blue {
 
-    .document-window {
-
-        width: 88vw;
-
-        height: 82vh;
+        left: 51%;
+        top: 57%;
     }
 }
 
 
-/* =====================================================
+/* ==================================================
    ТЕЛЕФОН
-===================================================== */
+================================================== */
 
 @media (max-width: 600px) {
 
     body {
-
         overflow-y: auto;
     }
-
 
     .desktop {
 
@@ -1330,13 +1977,30 @@ and
         overflow: hidden;
     }
 
+    .top-menu {
+
+        top: 12px;
+
+        width:
+            calc(100vw - 24px);
+    }
+
+    .search-bar {
+
+        height: 44px;
+    }
+
+    .search-bar input {
+
+        font-size: 14px;
+    }
 
     .archive-title {
 
-        top: 20px;
+        top: 72px;
+
         left: 22px;
     }
-
 
     .archive-title h1 {
 
@@ -1345,14 +2009,12 @@ and
         letter-spacing: 5px;
     }
 
-
     .small-title {
 
         font-size: 8px;
 
         letter-spacing: 3px;
     }
-
 
     .folders {
 
@@ -1365,7 +2027,7 @@ and
         min-height: 100vh;
 
         padding:
-            95px 12px
+            145px 12px
             40px;
 
         display: grid;
@@ -1373,150 +2035,49 @@ and
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
-        align-items: start;
-
         gap:
             30px 9px;
     }
 
-
-    .folder,
-    .folder-1,
-    .folder-2,
-    .folder-3,
-    .folder-4 {
+    .folder {
 
         position: relative;
 
-        left: auto;
-        top: auto;
+        left: auto !important;
+        top: auto !important;
 
         width: 100%;
 
         transform:
             rotate(0deg);
-
-        animation:
-            mobileAppear
-            .6s
-            cubic-bezier(.2,.8,.2,1)
-            backwards;
     }
-
-
-    .folder-1 {
-        animation-delay: .05s;
-    }
-
-
-    .folder-2 {
-        animation-delay: .15s;
-    }
-
-
-    .folder-3 {
-        animation-delay: .25s;
-    }
-
-
-    .folder-4 {
-        animation-delay: .35s;
-    }
-
-
-    @keyframes mobileAppear {
-
-        from {
-
-            opacity: 0;
-
-            transform:
-                translateY(40px)
-                scale(.8);
-        }
-
-        to {
-
-            opacity: 1;
-
-            transform:
-                translateY(0)
-                scale(1);
-        }
-    }
-
-
-    .folder:hover {
-
-        transform:
-            rotate(0deg);
-    }
-
-
-    .folder:active {
-
-        transform:
-            scale(.96);
-    }
-
-
-    .folder.open {
-
-        transform:
-            scale(1.04)
-            translateY(-5px);
-    }
-
-
-    .folder.open .folder-lid {
-
-        transform:
-            rotateX(-68deg)
-            translateY(-5px);
-    }
-
 
     .folder-title {
 
         font-size: 12px;
-
-        margin-top: 5px;
     }
-
 
     .folder-label {
 
         font-size: 8px;
-
-        letter-spacing: 0;
     }
-
 
     .folder-tab {
 
         font-size: 6px;
     }
 
-
     .document-overlay {
 
         padding: 10px;
     }
-
 
     .document-window {
 
         width: 95vw;
 
         height: 88vh;
-
-        border-radius: 8px;
-
-        transform:
-            translateY(60px)
-            scale(.85);
     }
-
 
     .document-body {
 
@@ -1527,7 +2088,6 @@ and
         line-height: 1.65;
     }
 
-
     .document-header {
 
         min-height: 58px;
@@ -1537,40 +2097,58 @@ and
             8px 15px;
     }
 
-
     .document-header h2 {
 
         font-size: 16px;
     }
 
+    .nyun-game {
 
-    .close-button {
+        padding: 10px;
+    }
 
-        width: 34px;
-        height: 34px;
+    .nyun-window {
 
-        font-size: 26px;
+        width: 96vw;
+
+        max-height: 92vh;
+
+        padding:
+            18px 12px
+            15px;
+    }
+
+    .nyun-picture-area {
+
+        max-height: 50vh;
+    }
+
+    .nyun-image {
+
+        max-height: 50vh;
+    }
+
+    .kick-button,
+    .nyun-secret-button {
+
+        width: 90%;
     }
 }
 
 
-/* =====================================================
-   МАЛЕНЬКИЙ ТЕЛЕФОН
-===================================================== */
+/* ==================================================
+   ОЧЕНЬ МАЛЕНЬКИЙ ТЕЛЕФОН
+================================================== */
 
 @media (max-width: 380px) {
 
     .folders {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         padding-left: 35px;
         padding-right: 35px;
-
-        gap: 25px;
     }
-
 
     .folder {
 
@@ -1579,33 +2157,5 @@ and
         max-width: 330px;
 
         margin: auto;
-    }
-
-
-    .folder-title {
-
-        font-size: 14px;
-    }
-}
-
-
-/* =====================================================
-   УМЕНЬШЕНИЕ АНИМАЦИЙ
-===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-
-        animation-duration:
-            .01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            .01ms !important;
     }
 }
