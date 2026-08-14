@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
 
-    <title>Архив</title>
+    <title>Архив документов</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,78 +12,44 @@
 
 <div class="desktop">
 
-    <!-- =========================
-         ВЕРХНЕЕ МЕНЮ
-    ========================== -->
-
-    <div class="top-menu">
-
-        <div class="search-bar">
-
-            <span class="search-icon">⌕</span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Поиск по архиву..."
-                autocomplete="off"
-                spellcheck="false"
-            >
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================
-         ЗАГОЛОВОК
-    ========================== -->
-
+    <!-- Заголовок -->
     <header class="archive-title">
-
-        <div class="small-title">
-            CLASSIFIED ARCHIVE
-        </div>
-
+        <div class="small-title">От Р.С.</div>
         <h1>АРХИВ</h1>
-
-        <div class="title-line"></div>
-
+        <div class="line"></div>
     </header>
 
 
-    <!-- =========================
-         СВЕТ ЛАМПЫ
-    ========================== -->
-
+    <!-- Свет от лампы -->
     <div class="lamp-light"></div>
 
 
-    <!-- =========================
-         ПАПКИ
-    ========================== -->
-
+    <!-- Папки -->
     <main class="folders">
 
 
-        <!-- ПАПКА 1 -->
+        <!-- =====================================
+             ПАПКА 1
+        ====================================== -->
 
-        <div
-            class="folder folder-brown"
-            data-document="0"
-        >
+        <div class="folder folder-brown"
+             data-document="0">
 
             <div class="folder-shadow"></div>
 
             <div class="folder-object">
 
+                <!-- Задняя часть -->
                 <div class="folder-back">
 
                     <div class="folder-tab">
-                        BROWN FILE
+                        ДОКУМЕНТЫ
                     </div>
 
                 </div>
+
+
+                <!-- Бумаги внутри -->
 
                 <div class="papers">
 
@@ -99,32 +59,37 @@
 
                 </div>
 
+
+                <!-- Крышка -->
                 <div class="folder-lid">
 
                     <div class="folder-label">
-                        ПАПКА №01
+                        Дело №01
                     </div>
 
                 </div>
 
+
+                <!-- Передняя стенка -->
                 <div class="folder-front"></div>
 
             </div>
 
+
             <div class="folder-title">
-            бланк
+                дело Кевина и Селин
             </div>
 
         </div>
 
 
 
-        <!-- ПАПКА 2 -->
+        <!-- =====================================
+             ПАПКА 2
+        ====================================== -->
 
-        <div
-            class="folder folder-green"
-            data-document="1"
-        >
+        <div class="folder folder-green"
+             data-document="1">
 
             <div class="folder-shadow"></div>
 
@@ -133,7 +98,7 @@
                 <div class="folder-back">
 
                     <div class="folder-tab">
-                        GREEN FILE
+                        ARCHIVE
                     </div>
 
                 </div>
@@ -149,7 +114,7 @@
                 <div class="folder-lid">
 
                     <div class="folder-label">
-                        ПАПКА №02
+                        Дело №02
                     </div>
 
                 </div>
@@ -159,19 +124,19 @@
             </div>
 
             <div class="folder-title">
-                касак
+                Дело фриды и Бернарда
             </div>
 
         </div>
 
 
 
-        <!-- ПАПКА 3 -->
+        <!-- =====================================
+             ПАПКА 3
+        ====================================== -->
 
-        <div
-            class="folder folder-red"
-            data-document="2"
-        >
+        <div class="folder folder-red"
+             data-document="2">
 
             <div class="folder-shadow"></div>
 
@@ -180,7 +145,7 @@
                 <div class="folder-back">
 
                     <div class="folder-tab">
-                        RED FILE
+                        CLASSIFIED
                     </div>
 
                 </div>
@@ -196,7 +161,7 @@
                 <div class="folder-lid">
 
                     <div class="folder-label">
-                        ПАПКА №03
+                        Дело №03
                     </div>
 
                 </div>
@@ -206,19 +171,19 @@
             </div>
 
             <div class="folder-title">
-                тори
+                Дело Аспид
             </div>
 
         </div>
 
 
 
-        <!-- ПАПКА 4 -->
+        <!-- =====================================
+             ПАПКА 4
+        ====================================== -->
 
-        <div
-            class="folder folder-blue"
-            data-document="3"
-        >
+        <div class="folder folder-blue"
+             data-document="3">
 
             <div class="folder-shadow"></div>
 
@@ -227,7 +192,7 @@
                 <div class="folder-back">
 
                     <div class="folder-tab">
-                        BLUE FILE
+                        RECORDS
                     </div>
 
                 </div>
@@ -243,7 +208,7 @@
                 <div class="folder-lid">
 
                     <div class="folder-label">
-                        ПАПКА №04
+                        Дело №04
                     </div>
 
                 </div>
@@ -253,54 +218,7 @@
             </div>
 
             <div class="folder-title">
-                сплайн
-            </div>
-
-        </div>
-
-
-
-        <!-- ПАПКА 5 -->
-
-        <div
-            class="folder folder-orange"
-            data-document="4"
-        >
-
-            <div class="folder-shadow"></div>
-
-            <div class="folder-object">
-
-                <div class="folder-back">
-
-                    <div class="folder-tab">
-                        ORANGE FILE
-                    </div>
-
-                </div>
-
-                <div class="papers">
-
-                    <div class="paper paper-1"></div>
-                    <div class="paper paper-2"></div>
-                    <div class="paper paper-3"></div>
-
-                </div>
-
-                <div class="folder-lid">
-
-                    <div class="folder-label">
-                        ПАПКА №05
-                    </div>
-
-                </div>
-
-                <div class="folder-front"></div>
-
-            </div>
-
-            <div class="folder-title">
-                оранд
+                Дело Спрута и Аспена
             </div>
 
         </div>
@@ -308,271 +226,56 @@
     </main>
 
 
-    <div class="vignette"></div>
 
-</div>
+    <!-- Затемнение при открытии документа -->
 
+    <div class="document-overlay"
+         id="documentOverlay">
 
+        <div class="document-window">
 
-<!-- ==================================================
-     ОКНО ДОКУМЕНТА
-================================================== -->
+            <div class="document-header">
 
-<div
-    class="document-overlay"
-    id="documentOverlay"
->
+                <div>
+                    <span class="document-class">
+                        ARCHIVE DOCUMENT
+                    </span>
 
-    <div class="document-window">
+                    <h2 id="documentTitle">
+                        Документ
+                    </h2>
+                </div>
 
-        <header class="document-header">
-
-            <div>
-
-                <span class="document-class">
-                    CLASSIFIED DOCUMENT
-                </span>
-
-                <h2 id="documentTitle">
-                    Документ
-                </h2>
+                <button
+                    class="close-button"
+                    id="closeButton">
+                    ×
+                </button>
 
             </div>
 
-            <button
-                class="close-button"
-                id="closeButton"
-                type="button"
-            >
-                ×
-            </button>
 
-        </header>
+            <div class="document-body"
+                 id="documentContent">
+            </div>
 
 
-        <article
-            class="document-body"
-            id="documentContent"
-        ></article>
+            <div class="document-footer">
+                <span>PERSONAL ARCHIVE</span>
+                <span id="documentNumber">001</span>
+            </div>
 
-
-        <footer class="document-footer">
-
-            <span>
-                ARCHIVE
-            </span>
-
-            <span>
-                DOCUMENT
-                <span id="documentNumber">
-                    000
-                </span>
-            </span>
-
-        </footer>
+        </div>
 
     </div>
 
-</div>
 
 
+    <!-- Виньетка -->
 
-<!-- ==================================================
-     СЕКРЕТНОЕ МЕНЮ НЮНА
-================================================== -->
-
-<div
-    class="nyun-game"
-    id="nyunGame"
->
-
-    <div class="nyun-window">
-
-        <button
-            class="nyun-close"
-            id="nyunClose"
-            type="button"
-        >
-            ×
-        </button>
-
-
-        <div class="nyun-title">
-            ⚠ СЕКРЕТНАЯ ИГРА ⚠
-        </div>
-
-
-        <div class="nyun-subtitle">
-            ОБНАРУЖЕН НЮН
-        </div>
-
-
-        <div class="nyun-picture-area">
-
-            <img
-                src="nyun.jpeg"
-                id="nyunImage"
-                class="nyun-image"
-                alt="Нюн"
-            >
-
-        </div>
-
-
-        <!-- ПНУТЬ -->
-
-        <button
-            class="kick-button"
-            id="kickButton"
-            type="button"
-        >
-            ПНУТЬ
-        </button>
-
-
-        <div
-            class="kick-counter"
-            id="kickCounter"
-        >
-            Пинков: 0
-        </div>
-
-
-        <!-- =========================
-             ОСЕМЕНИТЬ
-             ТЕПЕРЬ ЗДЕСЬ
-        ========================== -->
-
-        <button
-            class="nyun-secret-button"
-            id="secretMenuButton"
-            type="button"
-        >
-            🔐 ОСЕМЕНИТЬ
-        </button>
-
-    </div>
+    <div class="vignette"></div>
 
 </div>
-
-
-
-<!-- ==================================================
-     ОКНО ПАРОЛЯ
-================================================== -->
-
-<div
-    class="password-overlay"
-    id="passwordOverlay"
->
-
-    <div class="password-window">
-
-        <button
-            class="password-close"
-            id="passwordClose"
-            type="button"
-        >
-            ×
-        </button>
-
-
-        <div class="password-icon">
-            🔐
-        </div>
-
-
-        <h2>
-            ЗАКРЫТЫЙ РАЗДЕЛ
-        </h2>
-
-
-        <p>
-            Для доступа требуется пароль
-        </p>
-
-
-        <input
-            type="password"
-            id="passwordInput"
-            placeholder="Введите пароль..."
-            autocomplete="off"
-        >
-
-
-        <button
-            class="password-submit"
-            id="passwordSubmit"
-            type="button"
-        >
-            ВОЙТИ
-        </button>
-
-
-        <div
-            class="password-error"
-            id="passwordError"
-        ></div>
-
-    </div>
-
-</div>
-
-
-
-<!-- ==================================================
-     СЕКРЕТНОЕ ОКНО ОСЕМЕНИТЬ
-================================================== -->
-
-<div
-    class="inseminate-overlay"
-    id="inseminateOverlay"
->
-
-    <div class="inseminate-window">
-
-        <button
-            class="inseminate-close"
-            id="inseminateClose"
-            type="button"
-        >
-            ×
-        </button>
-
-
-        <div class="inseminate-icon">
-            🔓
-        </div>
-
-
-        <h2>
-            ДОСТУП РАЗРЕШЁН
-        </h2>
-
-
-        <p>
-            Секретная функция разблокирована.
-        </p>
-
-
-        <button
-            class="inseminate-button"
-            id="inseminateButton"
-            type="button"
-        >
-            ОСЕМЕНИТЬ
-        </button>
-
-
-        <div
-            class="inseminate-result"
-            id="inseminateResult"
-        ></div>
-
-    </div>
-
-</div>
-
 
 
 <script src="script.js"></script>
