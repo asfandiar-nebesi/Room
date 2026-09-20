@@ -304,9 +304,77 @@
 
     </main>
 
+    <div class="update-sign" aria-label="Обновление уже тут">
+        <span>ОБНОВЛЕНИЕ УЖЕ ТУТ</span>
+    </div>
+
     <div class="vignette"></div>
 
 </div>
+
+
+
+<!-- ==================================================
+     ВТОРОЙ СТОЛ
+================================================== -->
+
+<section class="second-desktop" id="secondDesktop" aria-hidden="true">
+
+    <div class="purple-light"></div>
+    <div class="vine vine-left" aria-hidden="true">
+        <svg viewBox="0 0 160 900" preserveAspectRatio="none">
+            <path class="vine-stem" d="M82 -15 C18 105 136 184 69 292 S128 482 57 606 S124 779 63 920" />
+            <ellipse class="vine-leaf" cx="45" cy="115" rx="26" ry="10" transform="rotate(-35 45 115)" />
+            <ellipse class="vine-leaf leaf-light" cx="87" cy="178" rx="27" ry="10" transform="rotate(36 87 178)" />
+            <ellipse class="vine-leaf" cx="51" cy="270" rx="25" ry="10" transform="rotate(-37 51 270)" />
+            <ellipse class="vine-leaf leaf-light" cx="96" cy="355" rx="28" ry="10" transform="rotate(35 96 355)" />
+            <ellipse class="vine-leaf" cx="40" cy="453" rx="26" ry="10" transform="rotate(-38 40 453)" />
+            <ellipse class="vine-leaf leaf-light" cx="90" cy="544" rx="27" ry="10" transform="rotate(35 90 544)" />
+            <ellipse class="vine-leaf" cx="37" cy="652" rx="25" ry="10" transform="rotate(-36 37 652)" />
+            <ellipse class="vine-leaf leaf-light" cx="93" cy="746" rx="27" ry="10" transform="rotate(35 93 746)" />
+        </svg>
+    </div>
+    <div class="vine vine-right" aria-hidden="true">
+        <svg viewBox="0 0 160 900" preserveAspectRatio="none">
+            <path class="vine-stem" d="M82 -15 C18 105 136 184 69 292 S128 482 57 606 S124 779 63 920" />
+            <ellipse class="vine-leaf" cx="45" cy="115" rx="26" ry="10" transform="rotate(-35 45 115)" />
+            <ellipse class="vine-leaf leaf-light" cx="87" cy="178" rx="27" ry="10" transform="rotate(36 87 178)" />
+            <ellipse class="vine-leaf" cx="51" cy="270" rx="25" ry="10" transform="rotate(-37 51 270)" />
+            <ellipse class="vine-leaf leaf-light" cx="96" cy="355" rx="28" ry="10" transform="rotate(35 96 355)" />
+            <ellipse class="vine-leaf" cx="40" cy="453" rx="26" ry="10" transform="rotate(-38 40 453)" />
+            <ellipse class="vine-leaf leaf-light" cx="90" cy="544" rx="27" ry="10" transform="rotate(35 90 544)" />
+            <ellipse class="vine-leaf" cx="37" cy="652" rx="25" ry="10" transform="rotate(-36 37 652)" />
+            <ellipse class="vine-leaf leaf-light" cx="93" cy="746" rx="27" ry="10" transform="rotate(35 93 746)" />
+        </svg>
+    </div>
+
+    <header class="mail-title">
+        <span>PRIVATE CORRESPONDENCE</span>
+        <h1>ПОЧТА</h1>
+    </header>
+
+    <div class="mail-stack" aria-label="Письма на столе">
+        <button class="mail-envelope envelope-back" data-letter="3" aria-label="Закрытое письмо 4">
+            <span class="envelope-flap"></span>
+        </button>
+        <button class="mail-envelope envelope-mid" data-letter="2" aria-label="Закрытое письмо 3">
+            <span class="envelope-flap"></span>
+        </button>
+        <button class="mail-envelope envelope-front" data-letter="1" aria-label="Закрытое письмо 2">
+            <span class="envelope-flap"></span>
+        </button>
+        <button class="mail-envelope envelope-main" data-letter="0" aria-label="Закрытое письмо 1">
+            <span class="envelope-flap"></span>
+            <span class="envelope-seal">✦</span>
+        </button>
+    </div>
+
+    <button class="desk-arrow desk-prev" id="previousDesk" aria-label="Вернуться к первому столу">←</button>
+
+</section>
+
+
+<button class="desk-arrow desk-next" id="nextDesk" aria-label="Перейти ко второму столу">→</button>
 
 
 
@@ -364,6 +432,49 @@
 
 
 <!-- ==================================================
+     ДИКТОФОН
+================================================== -->
+
+<button class="voice-recorder" id="voiceRecorder" aria-label="Открыть записи диктофона">
+    <span class="recorder-mic"></span>
+    <span class="recorder-screen">REC</span>
+    <span class="recorder-grille"></span>
+</button>
+
+
+<div class="recorder-overlay" id="recorderOverlay" aria-hidden="true">
+    <section class="recorder-window" aria-labelledby="recorderTitle">
+        <button class="recorder-close" id="recorderClose" aria-label="Закрыть записи">×</button>
+
+        <div class="recorder-heading">
+            <span>ДИКТОФОН</span>
+            <h2 id="recorderTitle">Найденные сообщения</h2>
+        </div>
+
+        <div class="film-strip" id="filmStrip">
+            <button class="film-frame active" data-message="0">
+                <span class="film-number">01</span>
+                <span class="film-label">ЗАПИСЬ 01</span>
+                <span class="film-time">00:18</span>
+            </button>
+            <button class="film-frame" data-message="1">
+                <span class="film-number">02</span>
+                <span class="film-label">ЗАПИСЬ 02</span>
+                <span class="film-time">01:04</span>
+            </button>
+            <button class="film-frame" data-message="2">
+                <span class="film-number">03</span>
+                <span class="film-label">ЗАПИСЬ 03</span>
+                <span class="film-time">00:42</span>
+            </button>
+        </div>
+
+        <article class="message-paper" id="messageContent"></article>
+    </section>
+</div>
+
+
+<!-- ==================================================
      РЕЗУЛЬТАТ ПОИСКА
 ================================================== -->
 
@@ -372,6 +483,35 @@
         <button class="image-close" id="imageClose" aria-label="Закрыть изображение">×</button>
         <img id="searchImage" src="" alt="Результат поиска">
     </div>
+</div>
+
+
+<!-- ==================================================
+     ПОЧТА
+================================================== -->
+
+<div class="letter-lock-overlay" id="letterLockOverlay" aria-hidden="true">
+    <section class="letter-lock-window" aria-labelledby="letterLockTitle">
+        <button class="letter-close" id="letterLockClose" aria-label="Закрыть письмо">×</button>
+        <span class="lock-symbol">✉</span>
+        <h2 id="letterLockTitle">Закрытое письмо</h2>
+        <p>Письмо для <span>----</span></p>
+        <input type="text" id="letterNameInput" placeholder="Введите имя..." autocomplete="off">
+        <button class="letter-unlock-button" id="letterUnlockButton">ОТКРЫТЬ</button>
+        <div class="letter-error" id="letterError"></div>
+    </section>
+</div>
+
+
+<div class="letter-overlay" id="letterOverlay" aria-hidden="true">
+    <section class="letter-window" aria-labelledby="letterTitle">
+        <button class="letter-close" id="letterClose" aria-label="Закрыть письмо">×</button>
+        <header class="letter-header">
+            <span>PRIVATE LETTER</span>
+            <h2 id="letterTitle">Письмо</h2>
+        </header>
+        <article class="letter-body" id="letterBody"></article>
+    </section>
 </div>
 
 
