@@ -3162,3 +3162,570 @@ and
         font-size: 16px;
     }
 }
+
+
+/* ==================================================
+   АДАПТАЦИЯ: ПЛАНШЕТЫ
+================================================== */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .desktop {
+
+        height: 100dvh;
+
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .top-menu {
+
+        width: min(620px, 82vw);
+    }
+
+    .archive-title {
+
+        top: 88px;
+        left: 32px;
+    }
+
+    .update-sign {
+
+        top: 99px;
+        right: 168px;
+
+        font-size: 12px;
+    }
+
+    .voice-recorder {
+
+        top: 112px;
+        right: 34px;
+
+        transform: rotate(45deg) scale(.8);
+    }
+
+    .voice-recorder:hover {
+
+        transform: rotate(45deg) scale(.8) translateY(-7px);
+    }
+
+    .folders {
+
+        position: relative;
+        inset: auto;
+
+        min-height: 100dvh;
+
+        padding: 165px clamp(25px, 4vw, 54px) 48px;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 34px 20px;
+
+        align-content: start;
+    }
+
+    .folder {
+
+        position: relative;
+
+        left: auto !important;
+        top: auto !important;
+
+        width: min(100%, 280px);
+
+        margin: auto;
+
+        transform: rotate(0deg);
+    }
+
+    .folder:nth-child(3n + 1) {
+
+        transform: rotate(-2deg);
+    }
+
+    .folder:nth-child(3n + 2) {
+
+        transform: rotate(2deg);
+    }
+
+    .folder-gray {
+
+        grid-column: 2;
+    }
+
+    .desk-arrow {
+
+        width: 50px;
+        height: 72px;
+    }
+
+    .mail-title {
+
+        top: 58px;
+    }
+
+    .mail-stack {
+
+        width: min(520px, 65vw);
+        height: min(330px, 42vw);
+
+        transform: translate(-50%, -32%) rotate(-3deg);
+    }
+
+    .vine {
+
+        width: clamp(105px, 15vw, 150px);
+    }
+
+    .vine-left {
+
+        left: 20px;
+    }
+
+    .vine-right {
+
+        right: 20px;
+    }
+
+    .letter-window {
+
+        width: min(760px, 90vw);
+    }
+
+    .recorder-window {
+
+        width: min(680px, 90vw);
+        max-height: calc(100dvh - 36px);
+
+        overflow-y: auto;
+    }
+}
+
+
+/* ==================================================
+   АДАПТАЦИЯ: ТЕЛЕФОНЫ
+================================================== */
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+
+        min-height: 100dvh;
+    }
+
+    body {
+
+        overflow: hidden;
+    }
+
+    .desktop {
+
+        height: 100dvh;
+        min-height: 100dvh;
+
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .top-menu {
+
+        top: max(10px, env(safe-area-inset-top));
+        width: calc(100vw - 20px);
+    }
+
+    .search-bar {
+
+        height: 46px;
+
+        padding: 0 13px;
+    }
+
+    .search-bar input {
+
+        font-size: 16px;
+    }
+
+    .archive-title {
+
+        top: 73px;
+        left: 16px;
+    }
+
+    .small-title {
+
+        max-width: 165px;
+
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .archive-title h1 {
+
+        font-size: 19px;
+        letter-spacing: 4px;
+    }
+
+    .update-sign {
+
+        top: 72px;
+        right: 11px;
+
+        max-width: 145px;
+
+        padding: 7px 8px;
+
+        font-size: 8px;
+        line-height: 1.25;
+        letter-spacing: .7px;
+        text-align: center;
+    }
+
+    .voice-recorder {
+
+        top: 115px;
+        right: -1px;
+
+        transform: rotate(45deg) scale(.58);
+
+        transform-origin: top right;
+    }
+
+    .voice-recorder:hover {
+
+        transform: rotate(45deg) scale(.58) translateY(-5px);
+    }
+
+    .folders {
+
+        min-height: 100dvh;
+
+        padding:
+            150px max(12px, env(safe-area-inset-right))
+            34px max(12px, env(safe-area-inset-left));
+
+        gap: 22px 10px;
+    }
+
+    .folder {
+
+        min-width: 0;
+    }
+
+    .folder-title {
+
+        min-height: 32px;
+
+        font-size: 11px;
+        line-height: 1.25;
+    }
+
+    .folder-label {
+
+        padding: 5px;
+
+        font-size: 7px;
+        line-height: 1.1;
+    }
+
+    .folder-tab {
+
+        font-size: 5px;
+    }
+
+    .desk-arrow {
+
+        top: 52%;
+
+        width: 46px;
+        height: 68px;
+
+        border-radius: 9px;
+
+        font-size: 34px;
+    }
+
+    .desk-next {
+
+        right: max(6px, env(safe-area-inset-right));
+    }
+
+    .desk-prev {
+
+        left: max(6px, env(safe-area-inset-left));
+    }
+
+    .second-desktop {
+
+        height: 100dvh;
+    }
+
+    .mail-title {
+
+        top: max(66px, env(safe-area-inset-top));
+
+        width: calc(100% - 90px);
+    }
+
+    .mail-title h1 {
+
+        font-size: clamp(23px, 8vw, 31px);
+        letter-spacing: 5px;
+    }
+
+    .mail-title span {
+
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .vine {
+
+        top: -12px;
+
+        width: 70px;
+        height: 104dvh;
+    }
+
+    .vine-left {
+
+        left: 4px;
+    }
+
+    .vine-right {
+
+        right: 4px;
+    }
+
+    .mail-stack {
+
+        top: 55%;
+
+        width: min(85vw, 410px);
+        height: min(62vw, 290px);
+
+        transform: translate(-50%, -35%) rotate(-3deg);
+    }
+
+    .mail-envelope {
+
+        min-height: 86px;
+    }
+
+    .envelope-seal {
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 15px;
+    }
+
+    .letter-lock-overlay,
+    .letter-overlay,
+    .document-overlay,
+    .recorder-overlay,
+    .nyun-game {
+
+        padding:
+            max(10px, env(safe-area-inset-top))
+            max(10px, env(safe-area-inset-right))
+            max(10px, env(safe-area-inset-bottom))
+            max(10px, env(safe-area-inset-left));
+    }
+
+    .letter-lock-window {
+
+        width: min(400px, 100%);
+
+        padding: 32px 22px 24px;
+    }
+
+    .letter-window {
+
+        width: 100%;
+        max-height: calc(100dvh - 20px);
+    }
+
+    .letter-header {
+
+        padding: 15px 49px 13px 18px;
+    }
+
+    .letter-header h2 {
+
+        font-size: 21px;
+    }
+
+    .letter-body {
+
+        max-height: calc(100dvh - 72px);
+
+        padding: 24px 18px 30px;
+
+        font-size: 16px;
+        line-height: 1.58;
+    }
+
+    .letter-drawing {
+
+        width: min(115px, 42%);
+    }
+
+    .document-window {
+
+        width: 100%;
+        height: calc(100dvh - 20px);
+    }
+
+    .document-body {
+
+        padding: 18px;
+
+        font-size: 16px;
+    }
+
+    .recorder-window {
+
+        width: 100%;
+        max-height: calc(100dvh - 20px);
+
+        padding: 24px 13px 15px;
+
+        overflow-y: auto;
+    }
+
+    .recorder-heading {
+
+        margin-bottom: 14px;
+    }
+
+    .film-strip {
+
+        gap: 8px;
+
+        margin: 0 -3px;
+        padding: 10px 12px;
+    }
+
+    .film-frame {
+
+        flex-basis: 132px;
+
+        min-height: 99px;
+
+        padding: 13px 8px 10px;
+    }
+
+    .message-paper {
+
+        min-height: 118px;
+
+        margin-top: 14px;
+        padding: 18px;
+
+        font-size: 16px;
+    }
+}
+
+
+/* Низкие экраны и альбомная ориентация телефона. */
+@media (max-width: 900px) and (max-height: 560px) {
+
+    .top-menu {
+
+        top: 7px;
+
+        width: min(520px, 72vw);
+    }
+
+    .search-bar {
+
+        height: 38px;
+    }
+
+    .archive-title {
+
+        top: 57px;
+        left: 18px;
+    }
+
+    .update-sign {
+
+        top: 58px;
+        right: 116px;
+    }
+
+    .voice-recorder {
+
+        top: 55px;
+        right: 4px;
+
+        transform: rotate(45deg) scale(.48);
+    }
+
+    .folders {
+
+        padding-top: 104px;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+    .folder-title {
+
+        min-height: auto;
+        font-size: 10px;
+    }
+
+    .mail-title {
+
+        top: 30px;
+    }
+
+    .mail-stack {
+
+        top: 58%;
+
+        width: min(48vw, 430px);
+        height: min(42vh, 240px);
+    }
+
+    .vine {
+
+        width: 88px;
+        height: 112dvh;
+    }
+
+    .desk-arrow {
+
+        width: 40px;
+        height: 54px;
+
+        font-size: 29px;
+    }
+}
+
+
+@media (pointer: coarse) {
+
+    .folder,
+    .voice-recorder,
+    .desk-arrow,
+    .mail-envelope,
+    .film-frame,
+    .letter-unlock-button,
+    .letter-close,
+    .recorder-close,
+    .close-button {
+
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
