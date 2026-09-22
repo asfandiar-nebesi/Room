@@ -2787,16 +2787,74 @@ const filmFrames =
     );
 
 const recorderMessages = [
-    "Запись 01\n\nСообщение найдено в архиве. Здесь можно оставить первый текст для чтения.",
-    "Запись 02\n\nnot found.",
+    {
+        html: `
+            <p class="recorder-note-title">Фрида и Чарльз</p>
+            <div class="recorder-tracks">
+                <label>Isn't she lovely
+                    <audio controls preload="none" src="audio/isnt-she-lovely.mp3"></audio>
+                </label>
+                <label>My moon, My man
+                    <audio controls preload="none" src="audio/my-moon-my-man.mp3"></audio>
+                </label>
+                <label>What can I do for you
+                    <audio controls preload="none" src="audio/what-can-i-do-for-you.mp3"></audio>
+                </label>
+                <label>Forever
+                    <audio controls preload="none" src="audio/forever.mp3"></audio>
+                </label>
+            </div>
+        `
+    },
+    {
+        html: `
+            <p class="recorder-note-title">Селин и Бернард</p>
+            <div class="recorder-tracks">
+                <label>Bloody devastation
+                    <audio controls preload="none" src="audio/bloody-devastation.mp3"></audio>
+                </label>
+                <label>La Seine
+                    <audio controls preload="none" src="audio/la-seine.mp3"></audio>
+                </label>
+                <label>Your are my destiny
+                    <audio controls preload="none" src="audio/your-are-my-destiny.mp3"></audio>
+                </label>
+                <label>Mon amour, mon ami
+                    <audio controls preload="none" src="audio/mon-amour-mon-ami.mp3"></audio>
+                </label>
+            </div>
+        `
+    },
     "Запись 03\n\nnot found."
 ];
 
 
+function pauseRecorderAudio() {
+
+    messageContent.querySelectorAll("audio").forEach(track => {
+
+        track.pause();
+
+    });
+
+}
+
+
 function showRecorderMessage(index) {
 
-    messageContent.textContent =
-        recorderMessages[index];
+    pauseRecorderAudio();
+
+    const message = recorderMessages[index];
+
+    if (message && typeof message === "object" && message.html) {
+
+        messageContent.innerHTML = message.html;
+
+    } else {
+
+        messageContent.textContent = message;
+
+    }
 
     filmFrames.forEach(frame => {
 
@@ -2825,6 +2883,8 @@ function openRecorder() {
 
 
 function closeRecorder() {
+
+    pauseRecorderAudio();
 
     recorderOverlay.classList.remove(
         "active"
@@ -3769,6 +3829,199 @@ document.addEventListener(
             inseminateOverlay.classList.remove(
                 "active"
             );
+
+        }
+
+
+        if (
+            clueSecretOverlay.classList.contains(
+                "active"
+            )
+        ) {
+
+            closeClueSecret();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   СКРЫТЫЕ РИСУНКИ
+================================================== */
+
+const clueSecretOverlay =
+    document.getElementById(
+        "clueSecretOverlay"
+    );
+
+const clueSecretClose =
+    document.getElementById(
+        "clueSecretClose"
+    );
+
+const hiddenClueSources = [
+    "items/clue-1.png",
+    "items/clue-2.png",
+    "items/clue-3.png",
+    "items/clue-4.png",
+    "items/clue-5.png",
+    "items/clue-6.png"
+];
+
+let foundClues = 0;
+
+
+function randomBetween(min, max) {
+
+    return min + Math.random() * (max - min);
+
+}
+
+
+function shuffleList(list) {
+
+    const copy = list.slice();
+
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+
+        const j = Math.floor(Math.random() * (i + 1));
+        const current = copy[i];
+        copy[i] = copy[j];
+        copy[j] = current;
+
+    }
+
+    return copy;
+
+}
+
+
+function openClueSecret() {
+
+    clueSecretOverlay.classList.add(
+        "active"
+    );
+
+    clueSecretOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+function closeClueSecret() {
+
+    clueSecretOverlay.classList.remove(
+        "active"
+    );
+
+    clueSecretOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+function scatterHiddenClues() {
+
+    const desks = [
+        firstDesktop,
+        secondDesktop
+    ];
+
+    const sources = shuffleList(
+        hiddenClueSources
+    );
+
+    sources.forEach((src, index) => {
+
+        const desk = desks[index % desks.length];
+        const button = document.createElement("button");
+        const image = document.createElement("img");
+        const size = randomBetween(88, 150);
+        const rotate = randomBetween(-28, 28);
+        const left = randomBetween(4, 78);
+        const top = randomBetween(14, 72);
+
+        button.className = "hidden-clue";
+        button.type = "button";
+        button.setAttribute(
+            "aria-label",
+            "Скрытый рисунок"
+        );
+        button.style.left = left + "%";
+        button.style.top = top + "%";
+        button.style.width = size + "px";
+        button.style.setProperty(
+            "--clue-rotate",
+            rotate + "deg"
+        );
+
+        image.src = src;
+        image.alt = "";
+        button.appendChild(image);
+        desk.appendChild(button);
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                if (
+                    button.classList.contains(
+                        "found"
+                    )
+                ) {
+                    return;
+                }
+
+                button.classList.add(
+                    "found"
+                );
+
+                foundClues += 1;
+
+                if (
+                    foundClues ===
+                    hiddenClueSources.length
+                ) {
+
+                    setTimeout(
+                        openClueSecret,
+                        280
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+scatterHiddenClues();
+
+
+clueSecretClose.addEventListener(
+    "click",
+    closeClueSecret
+);
+
+
+clueSecretOverlay.addEventListener(
+    "click",
+    event => {
+
+        if (event.target === clueSecretOverlay) {
+
+            closeClueSecret();
 
         }
 

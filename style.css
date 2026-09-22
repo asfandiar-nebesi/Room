@@ -1540,6 +1540,152 @@ body {
     white-space: pre-wrap;
 }
 
+.recorder-note-title {
+
+    margin: 0 0 14px;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+}
+
+.recorder-tracks {
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    white-space: normal;
+}
+
+.recorder-tracks label {
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    color: #3a332b;
+    font-size: 14px;
+}
+
+.recorder-tracks audio {
+
+    width: 100%;
+}
+
+
+/* ==================================================
+   СКРЫТЫЕ РИСУНКИ
+================================================== */
+
+.hidden-clue {
+
+    position: absolute;
+    z-index: 240;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    appearance: none;
+
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .45));
+    mix-blend-mode: screen;
+
+    transform: rotate(var(--clue-rotate, 0deg));
+
+    transition:
+        transform .25s ease,
+        opacity .3s ease,
+        filter .2s ease;
+}
+
+.hidden-clue img {
+
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hidden-clue:hover {
+
+    z-index: 260;
+    filter: brightness(1.12) drop-shadow(0 10px 18px rgba(0, 0, 0, .7));
+    transform: scale(1.12) rotate(var(--clue-rotate, 0deg));
+}
+
+.hidden-clue.found {
+
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.4) rotate(var(--clue-rotate, 0deg));
+}
+
+.clue-secret-overlay {
+
+    position: fixed;
+    z-index: 4200;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(6px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity .28s;
+}
+
+.clue-secret-overlay.active {
+
+    opacity: 1;
+    pointer-events: all;
+}
+
+.clue-secret-window {
+
+    position: relative;
+
+    max-width: min(920px, 92vw);
+    max-height: 88vh;
+
+    padding: 14px;
+
+    border: 2px solid #6d6253;
+    border-radius: 10px;
+
+    background: #1b1612;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, .85);
+}
+
+.clue-secret-window img {
+
+    display: block;
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.clue-secret-close {
+
+    position: absolute;
+    top: 4px;
+    right: 10px;
+
+    border: none;
+    background: transparent;
+    color: #cbbb98;
+
+    font-size: 32px;
+    cursor: pointer;
+}
+
 
 /* ==================================================
    НЮН
