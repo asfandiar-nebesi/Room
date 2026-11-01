@@ -108,7 +108,7 @@
                 <div class="folder-lid">
                     <div class="folder-label">
                         ПАПКА №02
-                    </div>
+                    </div>                      
                 </div>
 
                 <div class="folder-front"></div>
@@ -374,7 +374,42 @@
 </section>
 
 
+<!-- ==================================================
+     ТРЕТИЙ СТОЛ: СТАРОЕ РАДИО
+================================================== -->
+
+<section class="radio-desktop" id="radioDesktop" aria-hidden="true">
+    <button class="desk-arrow desk-prev radio-prev" id="previousRadioDesk" aria-label="Вернуться ко второму столу">←</button>
+
+    <div class="radio-table" aria-hidden="true"></div>
+    <div class="old-radio" aria-label="Старое радио с четырьмя настройками частоты">
+        <div class="radio-brand">ВОЛНА · 1968</div>
+        <div class="radio-face">
+            <div class="radio-display" id="radioDisplay" aria-live="polite">
+                <span class="radio-wave-display">000</span><span class="radio-wave-display">000</span><span class="radio-wave-display">000</span><span class="radio-wave-display">000</span>
+            </div>
+            <div class="radio-sliders">
+                <label class="radio-control"><span>1</span><input class="radio-range" type="range" min="0" max="999" value="0" data-frequency="179" aria-label="Первый ползунок"><input class="radio-number" type="number" min="0" max="999" value="0" aria-label="Значение первого ползунка"></label>
+                <label class="radio-control"><span>2</span><input class="radio-range" type="range" min="0" max="999" value="0" data-frequency="984" aria-label="Второй ползунок"><input class="radio-number" type="number" min="0" max="999" value="0" aria-label="Значение второго ползунка"></label>
+                <label class="radio-control"><span>3</span><input class="radio-range" type="range" min="0" max="999" value="0" data-frequency="88" aria-label="Третий ползунок"><input class="radio-number" type="number" min="0" max="999" value="0" aria-label="Значение третьего ползунка"></label>
+                <label class="radio-control"><span>4</span><input class="radio-range" type="range" min="0" max="999" value="1" data-frequency="0" aria-label="Четвёртый ползунок"><input class="radio-number" type="number" min="0" max="999" value="1" aria-label="Значение четвёртого ползунка"></label>
+            </div>
+        </div>
+        <div class="radio-knobs"><i></i><i></i><i></i></div>
+        <div class="radio-speaker" aria-hidden="true"><span></span></div>
+    </div>
+    <div class="radio-text-overlay" id="radioTextOverlay" aria-hidden="true">
+        <section class="radio-text-window" role="dialog" aria-modal="true" aria-labelledby="radioTextTitle">
+            <button class="radio-text-close" id="radioTextClose" aria-label="Закрыть окно">×</button>
+            <h2 id="radioTextTitle">СИГНАЛ НАЙДЕН</h2>
+            <div class="radio-message" id="radioMessage"></div>
+        </section>
+    </div>
+</section>
+
+
 <button class="desk-arrow desk-next" id="nextDesk" aria-label="Перейти ко второму столу">→</button>
+<button class="desk-arrow desk-next radio-next" id="nextRadioDesk" aria-label="Перейти к третьему столу">→</button>
 
 
 

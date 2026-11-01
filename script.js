@@ -2953,6 +2953,20 @@ const secondDesktop =
         "secondDesktop"
     );
 
+const radioDesktop = document.getElementById("radioDesktop");
+const nextRadioDesk = document.getElementById("nextRadioDesk");
+const previousRadioDesk = document.getElementById("previousRadioDesk");
+const radioSliders = document.querySelectorAll(".radio-range");
+const radioNumbers = document.querySelectorAll(".radio-number");
+const radioDisplay = document.getElementById("radioDisplay");
+const radioMessage = document.getElementById("radioMessage");
+const radioTextOverlay = document.getElementById("radioTextOverlay");
+const radioTextClose = document.getElementById("radioTextClose");
+const radioWaveDisplays = document.querySelectorAll(".radio-wave-display");
+const radioTextContent = ""; // Вставьте сюда текст, который появится после настройки всех волн.
+radioMessage.textContent = radioTextContent;
+const radioWaveTimers = Array.from(radioSliders, () => null);
+
 const nextDesk =
     document.getElementById(
         "nextDesk"
@@ -3100,6 +3114,8 @@ function showSecondDesk() {
         "aria-hidden",
         "false"
     );
+
+    nextRadioDesk.classList.add("visible");
 }
 
 
@@ -3125,6 +3141,64 @@ function showFirstDesk() {
         "aria-hidden",
         "true"
     );
+
+    radioDesktop.classList.remove("active");
+    radioDesktop.setAttribute("aria-hidden", "true");
+    nextRadioDesk.classList.remove("visible");
+}
+
+function showRadioDesk() {
+    secondDesktop.classList.remove("active");
+    secondDesktop.setAttribute("aria-hidden", "true");
+    nextRadioDesk.classList.remove("visible");
+    radioDesktop.classList.add("active");
+    radioDesktop.setAttribute("aria-hidden", "false");
+}
+
+function showSecondDeskFromRadio() {
+    radioDesktop.classList.remove("active");
+    radioDesktop.setAttribute("aria-hidden", "true");
+    secondDesktop.classList.add("active");
+    secondDesktop.setAttribute("aria-hidden", "false");
+    nextRadioDesk.classList.add("visible");
+}
+
+function updateRadio() {
+    const values = [...radioSliders].map(slider => Number(slider.value));
+    radioNumbers.forEach((field, index) => {
+        if (document.activeElement !== field) field.value = radioSliders[index].value;
+    });
+    radioWaveDisplays.forEach((display, index) => {
+        display.textContent = String(values[index]).padStart(3, "0");
+    });
+    radioDisplay.classList.toggle("tuned", [...radioWaveDisplays].every(display => display.dataset.ready === "true"));
+}
+
+function updateRadioWave(index) {
+    const slider = radioSliders[index];
+    const display = radioWaveDisplays[index];
+    const correct = Number(slider.value) === Number(slider.dataset.frequency);
+
+    clearTimeout(radioWaveTimers[index]);
+    radioWaveTimers[index] = null;
+    display.dataset.ready = "false";
+    display.classList.remove("green");
+    radioTextOverlay.classList.remove("active");
+    radioTextOverlay.setAttribute("aria-hidden", "true");
+
+    if (!correct) return;
+
+    radioWaveTimers[index] = setTimeout(() => {
+        if (Number(slider.value) !== Number(slider.dataset.frequency)) return;
+        display.dataset.ready = "true";
+        display.classList.add("green");
+        const allReady = [...radioWaveDisplays].every(wave => wave.dataset.ready === "true");
+        radioDisplay.classList.toggle("tuned", allReady);
+        if (allReady) {
+            radioTextOverlay.classList.add("active");
+            radioTextOverlay.setAttribute("aria-hidden", "false");
+        }
+    }, 3000);
 }
 
 
@@ -3240,6 +3314,41 @@ previousDesk.addEventListener(
     "click",
     showFirstDesk
 );
+
+document.getElementById("nextRadioDesk").addEventListener("click", showRadioDesk);
+previousRadioDesk.addEventListener("click", showSecondDeskFromRadio);
+radioSliders.forEach((slider, index) => slider.addEventListener("input", () => {
+    updateRadio();
+    updateRadioWave(index);
+}));
+radioNumbers.forEach((field, index) => {
+    field.addEventListener("input", () => {
+        if (field.value === "") return;
+        const value = Math.max(0, Math.min(999, Number(field.value)));
+        radioSliders[index].value = String(value);
+        updateRadio();
+        updateRadioWave(index);
+    });
+    field.addEventListener("change", () => {
+        const value = Math.max(0, Math.min(999, Number(field.value) || 0));
+        field.value = String(value);
+        radioSliders[index].value = String(value);
+        updateRadio();
+        updateRadioWave(index);
+    });
+});
+updateRadio();
+radioSliders.forEach((_, index) => updateRadioWave(index));
+
+function closeRadioText() {
+    radioTextOverlay.classList.remove("active");
+    radioTextOverlay.setAttribute("aria-hidden", "true");
+}
+
+radioTextClose.addEventListener("click", closeRadioText);
+radioTextOverlay.addEventListener("click", event => {
+    if (event.target === radioTextOverlay) closeRadioText();
+});
 
 
 mailEnvelopes.forEach(envelope => {

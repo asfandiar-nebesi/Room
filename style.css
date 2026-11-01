@@ -2594,7 +2594,8 @@ and
 ================================================== */
 
 .desktop,
-.second-desktop {
+.second-desktop,
+.radio-desktop {
 
     transition:
         opacity .45s ease,
@@ -2688,6 +2689,109 @@ and
 
     transform: translateY(-50%) translateX(-4px);
 }
+
+.radio-next {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.radio-next.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.radio-desktop {
+    position: fixed;
+    z-index: 650;
+    inset: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, #050607 0%, #10100f 50%, #050505 100%);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+
+.radio-desktop::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -10%;
+    left: 27%;
+    width: 46%;
+    height: 112%;
+    background: linear-gradient(180deg, rgba(255,239,196,.48), rgba(255,208,135,.16) 62%, transparent);
+    clip-path: polygon(47% 0, 53% 0, 100% 100%, 0 100%);
+    filter: blur(28px);
+    pointer-events: none;
+}
+
+.radio-desktop::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: radial-gradient(ellipse 35% 32% at 50% 60%, rgba(255,210,142,.2), transparent 100%);
+    pointer-events: none;
+}
+
+.radio-desktop.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.radio-table {
+    position: absolute;
+    left: -8%;
+    right: -8%;
+    top: 48%;
+    height: 35%;
+    border: 8px solid #302016;
+    border-radius: 12px;
+    background: repeating-linear-gradient(2deg, #68472d 0 9px, #775337 10px 13px, #5a3b27 14px 22px);
+    box-shadow: 0 24px 50px #000, inset 0 8px 18px rgba(255,220,165,.2), 0 -15px 38px rgba(255,214,150,.11);
+    transform: perspective(700px) rotateX(8deg);
+}
+
+.old-radio {
+    position: relative;
+    z-index: 2;
+    width: min(680px, 76vw);
+    min-height: 310px;
+    padding: 28px 32px;
+    border: 8px solid #382719;
+    border-radius: 20px 20px 14px 14px;
+    background: linear-gradient(145deg, #8e6842, #54371f 48%, #372417);
+    box-shadow: 0 30px 50px #000, 0 0 48px rgba(255,213,145,.22), inset 0 2px 4px rgba(255,230,177,.42);
+    color: #f1d9a8;
+    transform: translateY(7vh);
+}
+
+.radio-brand { margin: 0 0 12px 5px; color: #dfbd7b; font: 12px Georgia,serif; letter-spacing: 4px; }
+.radio-face { display: grid; grid-template-columns: 1fr 1.1fr; gap: 12px 20px; padding: 18px; border: 3px solid #37291c; border-radius: 8px; background: linear-gradient(130deg,#332a1e,#1c1a17); box-shadow: inset 0 0 18px #000; }
+.radio-display { display: flex; align-items: center; justify-content: space-around; grid-column: 1 / -1; min-height: 54px; padding: 10px; border: 2px solid #625137; border-radius: 4px; background: #17201a; color: #a5c78c; font: 26px/1.2 "Courier New",monospace; letter-spacing: 7px; text-align: center; text-shadow: 0 0 8px #8fc875; }
+.radio-display.tuned { color: #e9d68c; text-shadow: 0 0 12px #f5d775; }
+.radio-wave-display { display: inline-block; margin: 0 5px; transition: color .35s, text-shadow .35s; }
+.radio-wave-display.green { color: #83e28d; text-shadow: 0 0 8px #39d24e, 0 0 18px rgba(57,210,78,.8); }
+.radio-message { color: #e9d9b2; font: 17px/1.7 Georgia,serif; white-space: pre-wrap; overflow-wrap: anywhere; }
+.radio-text-overlay { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; padding: 24px; background: rgba(0,0,0,.84); opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.radio-text-overlay.active { opacity: 1; pointer-events: auto; }
+.radio-text-window { position: relative; width: min(760px, 90vw); max-height: min(78vh, 760px); padding: 34px clamp(22px,5vw,52px); overflow: auto; border: 1px solid rgba(220,190,136,.65); border-radius: 8px; background: linear-gradient(145deg,#211d17,#100f0d); box-shadow: 0 24px 80px #000, 0 0 28px rgba(255,213,145,.12); }
+.radio-text-window h2 { margin: 0 28px 24px 0; color: #e8d5af; font: normal 19px Georgia,serif; letter-spacing: 4px; }
+.radio-text-close { position: absolute; top: 12px; right: 15px; width: 36px; height: 36px; border: 1px solid #756143; border-radius: 50%; background: #211c14; color: #e8d5af; font-size: 26px; cursor: pointer; }
+.radio-text-close:hover { background: #493a25; }
+.radio-sliders { display: contents; }
+.radio-control { display: grid; grid-template-columns: 20px minmax(0,1fr) 62px; align-items: center; gap: 8px; color: #c8a46b; font: bold 12px Georgia,serif; }
+.radio-control input { width: 100%; accent-color: #bd9453; }
+.radio-range { cursor: grab; }
+.radio-number { box-sizing: border-box; width: 62px; padding: 4px 5px; border: 1px solid #6a5437; border-radius: 4px; background: #171510; color: #e8d5af; font: 13px "Courier New",monospace; text-align: center; }
+.radio-number:focus { outline: 1px solid #d4ad6e; }
+.radio-knobs { display: flex; gap: 18px; margin-top: 14px; }
+.radio-knobs i { width: 34px; height: 34px; border: 3px solid #352315; border-radius: 50%; background: radial-gradient(circle at 35% 30%,#c5a273,#654522 65%,#24180f); box-shadow: 0 3px 5px #111; }
+.radio-speaker { position: absolute; right: 48px; bottom: 30px; width: 118px; height: 78px; border: 3px solid #382719; border-radius: 50%; background: repeating-radial-gradient(ellipse,#32271c 0 2px,#8a6740 3px 4px); }
+.radio-prev { left: 20px; }
 
 .second-desktop {
 
