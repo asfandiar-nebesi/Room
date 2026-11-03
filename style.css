@@ -391,6 +391,12 @@ body {
         rotate(5deg);
 }
 
+.folder-white {
+    left: 70%;
+    top: 8%;
+    transform: rotate(-3deg);
+}
+
 
 /* ==================================================
    ТЕНЬ
@@ -827,6 +833,12 @@ body {
     --folder-dark: #5b5b5b;
 }
 
+.folder-white {
+    --folder-light: #ffffff;
+    --folder-main: #e8e5df;
+    --folder-dark: #bdb8ae;
+}
+
 
 /* ==================================================
    НАЗВАНИЕ
@@ -1181,6 +1193,31 @@ body {
     font-size: 9px;
 
     letter-spacing: 2px;
+}
+
+.document-pages {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.document-pages[hidden] {
+    display: none;
+}
+
+.document-pages button {
+    width: 30px;
+    height: 26px;
+    border: 1px solid rgba(50,40,30,.25);
+    border-radius: 3px;
+    background: #e8e1d3;
+    color: #403a30;
+    cursor: pointer;
+}
+
+.document-pages button:disabled {
+    opacity: .4;
+    cursor: default;
 }
 
 

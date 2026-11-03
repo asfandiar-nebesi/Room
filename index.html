@@ -193,7 +193,6 @@
 
         </div>
 
-
         <!-- ПАПКА 5 ОРАНЖЕВАЯ -->
         <div class="folder folder-orange" data-document="4">
 
@@ -301,17 +300,23 @@
 
         </div>
 
+        <!-- ПАПКА 9 — БЕЛАЯ -->
+        <div class="folder folder-white" data-document="7">
+            <div class="folder-shadow"></div>
+            <div class="folder-object">
+                <div class="folder-back"><div class="folder-tab">WHITE FILE</div></div>
+                <div class="papers">
+                    <div class="paper paper-1"></div>
+                    <div class="paper paper-2"></div>
+                    <div class="paper paper-3"></div>
+                </div>
+                <div class="folder-lid"><div class="folder-label">ПАПКА №09</div></div>
+                <div class="folder-front"></div>
+            </div>
+            <div class="folder-title">Лейси</div>
+        </div>
 
     </main>
-
-    <div class="update-sign" aria-label="Обновление уже тут">
-        <span>ОБНОВЛЕНИЕ УЖЕ ТУТ</span>
-    </div>
-
-    <div class="vignette"></div>
-
-</div>
-
 
 
 <!-- ==================================================
@@ -469,6 +474,12 @@
         <footer class="document-footer">
 
             <span>ARCHIVE</span>
+
+            <nav class="document-pages" id="documentPages" aria-label="Страницы документа" hidden>
+                <button type="button" id="previousPage" aria-label="Предыдущий лист">←</button>
+                <span id="pageIndicator">Лист 1 / 2</span>
+                <button type="button" id="nextPage" aria-label="Следующий лист">→</button>
+            </nav>
 
             <span>
                 DOCUMENT
